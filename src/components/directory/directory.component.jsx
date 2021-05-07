@@ -41,8 +41,8 @@ class Directory extends React.Component {
                     linkUrl: 'shop/mens'
                 }
             ]
-        }
-    }
+        };
+    };
 
     render() {
         return (
@@ -54,7 +54,7 @@ class Directory extends React.Component {
                 }
             </div>
         )
-    }
+    };
 };
 
 export default Directory;

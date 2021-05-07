@@ -14,7 +14,7 @@ class SingUp extends React.Component {
             password: '',
             confirmPassword: ''
         }
-    }
+    };
 
     handleSubmit = async event => {
         event.preventDefault();
@@ -40,13 +40,13 @@ class SingUp extends React.Component {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     handleChange = event => {
         const { value, name } = event.target;
 
         this.setState({ [name]: value });
-    }
+    };
 
     render() {
         const { displayName, email, password, confirmPassword } = this.state;
@@ -94,7 +94,7 @@ class SingUp extends React.Component {
                 </form>
             </div>
         )
-    }
+    };
 };
 
 export default SingUp;

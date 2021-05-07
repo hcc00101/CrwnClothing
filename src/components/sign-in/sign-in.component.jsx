@@ -12,7 +12,7 @@ class SignIn extends React.Component {
             email: '',
             password: ''
         }
-    }
+    };
 
     handleSubmit = async event => {
         event.preventDefault();
@@ -25,13 +25,13 @@ class SignIn extends React.Component {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     handleChange = event => {
         const { value, name } = event.target;
 
         this.setState({ [name]: value });
-    }
+    };
 
     render() {
         return (
@@ -64,7 +64,7 @@ class SignIn extends React.Component {
                 </form>
             </div>
         )
-    }
+    };
 };
 
 export default SignIn;
