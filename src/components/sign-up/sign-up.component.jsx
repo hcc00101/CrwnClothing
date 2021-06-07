@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+/*import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';*/
 /*import './sign-up.styles.scss';*/
+import { signUpStart } from '../../redux/user/user.actions';
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 /*class SingUp extends React.Component {
@@ -113,6 +115,8 @@ class SingUp extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
 
+        const { signUpStart } = this.props;
+
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
@@ -120,8 +124,8 @@ class SingUp extends React.Component {
             return;
         }
 
-        try {
-            const { user } = auth.createUserWithEmailAndPassword(email, password);
+        /*try {
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
             await createUserProfileDocument(user, { displayName });
 
             this.setState({
@@ -133,7 +137,9 @@ class SingUp extends React.Component {
 
         } catch (error) {
             console.log(error);
-        }
+        }*/
+
+        signUpStart({ email, password, displayName });
     };
 
     handleChange = event => {
@@ -191,4 +197,8 @@ class SingUp extends React.Component {
     };
 };
 
-export default SingUp;
+const mapDisptachToProps = dispatch => ({
+    signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials))
+});
+
+export default connect(null, mapDisptachToProps)(SingUp);
