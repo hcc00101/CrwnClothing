@@ -11,7 +11,8 @@ import CheckoutPage from './pages/checkout/checkout.component';
 /*import { setCurrentUser } from './redux/user/user.actions';*/
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
-import './App.css';
+/*import './App.css';*/
+import { GlobalStyle } from './global.styles';
 
 /*class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -64,6 +65,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
